@@ -1,14 +1,24 @@
 {
   "name": "iris-elements",
+  "main": "./dist/iris-elements.common.js",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name iris-elements ./src/main.js",
     "lint": "vue-cli-service lint"
   },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
   "dependencies": {
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-template-compiler": "^2.5.17"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.1",
@@ -16,8 +26,7 @@
     "@vue/cli-service": "^3.1.4",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0-0",
-    "vue-template-compiler": "^2.5.17"
+    "eslint-plugin-vue": "^5.0.0-0"
   },
   "eslintConfig": {
     "root": true,

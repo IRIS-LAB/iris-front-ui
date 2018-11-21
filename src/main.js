@@ -1,8 +1,14 @@
 import Vue from 'vue'
-import App from './App.vue'
+import HelloWorld from './components/HelloWorld'
+import HelloWorld2 from './components/HelloWorld2'
 
-Vue.config.productionTip = false
+const Components = {
+  HelloWorld,
+  HelloWorld2
+}
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+Object.keys(Components).forEach(key => {
+  Vue.component(Components[key].name, Components[key])
+})
+
+export default Components

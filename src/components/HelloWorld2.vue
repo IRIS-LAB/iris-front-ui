@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1>Helloworld </h1>
+    <h1>Helloworld2 </h1>
     <div>{{ username }}</div>
   </div>
 </template>
 <script>
 export default {
-  name: 'iris-helloworld',
+  name: 'iris-helloworld2',
   props: ['username']
 }
 </script>
