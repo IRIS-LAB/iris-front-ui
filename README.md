@@ -18,6 +18,12 @@ npm run build-bundle
 npm run test
 ```
 
+### Run documentation server
+
+```
+npm run styleguide
+```
+
 ### Use the library to another project
 
 ```
