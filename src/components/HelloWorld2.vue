@@ -27,7 +27,9 @@ export default {
      * @param {string} param
      * @public
      */
-    example(param) {}
+    example(param) {
+      param = true
+    }
   }
 }
 </script>
@@ -37,7 +39,7 @@ export default {
 
 #### Simple Example
 
-```jsx
+```
 <iris-helloworld2 username="benjamin"></iris-helloworld2>
 ```
 

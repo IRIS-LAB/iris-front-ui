@@ -11,6 +11,7 @@
     "styleguide:build": "vue-cli-service styleguidist:build"
   },
   "dependencies": {
+    "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-cli-plugin-styleguidist": "^0.1.8",
     "vue-styleguidist": "^2.0.0",

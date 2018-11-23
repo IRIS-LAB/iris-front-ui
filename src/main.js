@@ -1,3 +1,4 @@
+import '../assets/style/main.css'
 import Vue from 'vue'
 import HelloWorld from './components/HelloWorld'
 import HelloWorld2 from './components/HelloWorld2'
