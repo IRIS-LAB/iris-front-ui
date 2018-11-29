@@ -1,0 +1,8 @@
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "es6",
+  "useTabs": false,
+  "proseWrap": "never",
+  "prettier.semi": false
+}

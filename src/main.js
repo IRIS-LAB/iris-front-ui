@@ -1,11 +1,11 @@
-import '../assets/style/main.css'
+import './assets/styles/main.css'
 import Vue from 'vue'
-import HelloWorld from './components/HelloWorld'
-import HelloWorld2 from './components/HelloWorld2'
+import IrisAbout from './components/about/IrisAbout'
+import IrisHelloWorld from './components/helloworld/IrisHelloWorld'
 
 const Components = {
-  HelloWorld,
-  HelloWorld2
+  IrisHelloWorld,
+  IrisAbout
 }
 
 Object.keys(Components).forEach(key => {

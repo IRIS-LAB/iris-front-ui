@@ -10,6 +10,7 @@
  *
  * This a faboulous Helloworld component.
  * @author Benjamin Corré
+ * @version 1.0.0
  *
  * ### Styling
  *
@@ -19,36 +20,33 @@
  * |---|---|---|
  * | <b>--iris-helloworld-color</b>  | Font color of helloworld  | <i>blue</i> |
  *
- * ### Properties & Methods
+ * ### Properties and Methods
  */
 export default {
-  name: 'iris-helloworld',
-  props: {
-    /**
-     * username to display
-     */
-    username: {
-      type: String,
-      default: 'benjamin'
-    }
-  },
-  methods: {
-    /**
-     * This is an example method
-     *
-     * @param {string} param
-     * @public
-     */
-    example(param) {
-      param = true
-    }
-  }
-}
+	name: 'iris-helloworld',
+
+	props: {
+		/**
+		 * username to display
+		 */
+		username: {
+			type: String,
+			default: 'benjamin',
+		},
+	},
+	methods: {
+		/**
+		 * This is an example method
+		 *
+		 * @public
+		 */
+		example() {},
+	},
+};
 </script>
 <style scoped>
-.iris-helloworld-style h1,
-.iris-helloworld-style div {
-  color: var(--iris-helloworld-color);
+.iris-helloworld-style {
+	color: var(--iris-helloworld-color);
 }
 </style>
 

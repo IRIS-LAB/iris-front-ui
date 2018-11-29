@@ -1,0 +1,11 @@
+{
+  "name": "My application",
+  "description": "The description of the application",
+  "team": "Supply chain",
+  "copyrightYear": "2018",
+  "company": "U GIE Iris",
+  "engines": {
+    "node": "9.0",
+    "npm": "6.5"
+  }
+}

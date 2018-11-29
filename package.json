@@ -1,29 +1,38 @@
 {
   "name": "iris-elements",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "unit": "jest --config test/unit/jest.conf.js",
+    "test": "npm run unit",
     "build-bundle": "vue-cli-service build --target lib --name iris-elements ./src/main.js",
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build"
   },
   "dependencies": {
-    "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
-    "vue-cli-plugin-styleguidist": "^0.1.8",
-    "vue-styleguidist": "^2.0.0",
+    "vue-cli-plugin-styleguidist": "^0.1.9",
+    "vue-styleguidist": "^2.0.2",
     "vue-template-compiler": "^2.5.17"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.1",
     "@vue/cli-plugin-eslint": "^3.1.5",
     "@vue/cli-service": "^3.1.4",
-    "babel-eslint": "^10.0.1",
+    "@vue/test-utils": "^1.0.0-beta.26",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^8.2.1",
+    "babel-jest": "^21.0.2",
+    "babel-loader": "^8.0.2",
+    "es-module-loader": "^2.3.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
+    "jest": "^23.6.0",
+    "jest-serializer-vue": "^2.0.2",
+    "vue-jest": "^3.0.1",
     "webpack": "^4.26.0"
   },
   "eslintConfig": {
