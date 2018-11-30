@@ -165,6 +165,14 @@ export default {
 
   #### Object entries Example 
 
+```vue 
+  <iris-about
+    :package-json="PACKAGE_JSON"
+    :application-json="APPLICATION_JSON"
+    language="fr"
+  ></iris-about>
+  ```
+
   ```html 
   <iris-about
     :package-json="PACKAGE_JSON"
@@ -173,6 +181,20 @@ export default {
   ></iris-about>
   ```
   #### String entries Example 
+
+  ```vue 
+  <iris-about
+    :package-json="PACKAGE_MODULE"
+    application-name="Another application"
+    application-description="The description of the application"
+    application-company="U GIE Iris"
+    application-copyright-year="2018"
+    application-engines-node="5.0"
+    application-engines-npm="7.0"
+    application-team="AIL"
+    language="en"
+  ></iris-about>
+  ```
 
   ```html 
   <iris-about
