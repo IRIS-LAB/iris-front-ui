@@ -23,30 +23,30 @@
  * ### Properties and Methods
  */
 export default {
-	name: 'iris-helloworld',
+  name: 'iris-helloworld',
 
-	props: {
-		/**
-		 * username to display
-		 */
-		username: {
-			type: String,
-			default: 'benjamin',
-		},
-	},
-	methods: {
-		/**
-		 * This is an example method
-		 *
-		 * @public
-		 */
-		example() {},
-	},
-};
+  props: {
+    /**
+     * username to display
+     */
+    username: {
+      type: String,
+      default: 'benjamin'
+    }
+  },
+  methods: {
+    /**
+     * This is an example method
+     *
+     * @public
+     */
+    example() {}
+  }
+}
 </script>
 <style scoped>
 .iris-helloworld-style {
-	color: var(--iris-helloworld-color);
+  color: var(--iris-helloworld-color);
 }
 </style>
 

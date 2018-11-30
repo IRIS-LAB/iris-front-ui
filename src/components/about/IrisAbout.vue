@@ -46,104 +46,102 @@ import lang from '../../assets/lang/i18n.js'
  * ### Properties and Methods
  */
 export default {
-	name: 'iris-about',
+  name: 'iris-about',
 
-	props: {
-		/**
-		 * Object referenced package.json
-		 */
-		packageJson: {
+  props: {
+    /**
+     * Object referenced package.json
+     */
+    packageJson: {
       type: Object,
-      default: (function () { return {} })
-		},
-		/**
-		 * Object referenced json files contained application informations
-		 */
-		applicationJson: {
-			type: Object,
-      default: (function () { return {} })
-		},
-		/**
-		 * Application name
-		 */
-		applicationName: String,
-		/**
-		 * Application description
-		 */
-		applicationDescription: String,
-		/**
-		 * Application team
-		 */
-		applicationTeam: String,
-		/**
-		 * Application Copyright year
-		 */
-		applicationCopyrightYear: String,
-		/**
-		 * Application node version
-		 */
-		applicationEnginesNode: String,
-		/**
-		 * Application npm version
-		 */
-		applicationEnginesNpm: String,
-		/**
-		 * Application company
-		 */
-		applicationCompany: String,
-		/**
-		 * Language `en, fr`
-		 */
-		language: {
-			type: String,
-			default: 'fr',
-		},
-	},
-	mixins: [IrisUtils],
-	data() {
-		return {
-			i18n: {},
-		};
-	},
-	computed: {
-		_cApplicationName() {
-			return this._firstNotEmpty(this.applicationName, this.applicationJson.name)
-		},
-		_cApplicationDescription() {
-			return this._firstNotEmpty(
-				this.applicationDescription,
-				this.applicationJson.description
-			);
-		},
-		_cApplicationTeam() {
-			return this._firstNotEmpty(this.applicationTeam, this.applicationJson.team)
-		},
-		_cApplicationCopyrightYear() {
-			return this._firstNotEmpty(
-				this.applicationCopyrightYear,
-				this.applicationJson.copyrightYear
-			);
-		},
-		_cApplicationEnginesNode() {
-			return this._firstNotEmpty(
-				this.applicationEnginesNode,
-				this.applicationJson.engines ? this.applicationJson.engines.node : ''
-			);
-		},
-		_cApplicationEnginesNpm() {
-			return this._firstNotEmpty(
-				this.applicationEnginesNpm,
-				this.applicationJson.engines ? this.applicationJson.engines.npm : ''
-			);
-		},
-		_cApplicationCompany() {
-			return this._firstNotEmpty(this.applicationCompany, this.applicationJson.company)
-		},
-	},
-	mounted() {
+      default: function() {
+        return {}
+      }
+    },
+    /**
+     * Object referenced json files contained application informations
+     */
+    applicationJson: {
+      type: Object,
+      default: function() {
+        return {}
+      }
+    },
+    /**
+     * Application name
+     */
+    applicationName: String,
+    /**
+     * Application description
+     */
+    applicationDescription: String,
+    /**
+     * Application team
+     */
+    applicationTeam: String,
+    /**
+     * Application Copyright year
+     */
+    applicationCopyrightYear: String,
+    /**
+     * Application node version
+     */
+    applicationEnginesNode: String,
+    /**
+     * Application npm version
+     */
+    applicationEnginesNpm: String,
+    /**
+     * Application company
+     */
+    applicationCompany: String,
+    /**
+     * Language `en, fr`
+     */
+    language: {
+      type: String,
+      default: 'fr'
+    }
+  },
+  mixins: [IrisUtils],
+  data() {
+    return {
+      i18n: {}
+    }
+  },
+  computed: {
+    _cApplicationName() {
+      return this._firstNotEmpty(this.applicationName, this.applicationJson.name)
+    },
+    _cApplicationDescription() {
+      return this._firstNotEmpty(this.applicationDescription, this.applicationJson.description)
+    },
+    _cApplicationTeam() {
+      return this._firstNotEmpty(this.applicationTeam, this.applicationJson.team)
+    },
+    _cApplicationCopyrightYear() {
+      return this._firstNotEmpty(this.applicationCopyrightYear, this.applicationJson.copyrightYear)
+    },
+    _cApplicationEnginesNode() {
+      return this._firstNotEmpty(
+        this.applicationEnginesNode,
+        this.applicationJson.engines ? this.applicationJson.engines.node : ''
+      )
+    },
+    _cApplicationEnginesNpm() {
+      return this._firstNotEmpty(
+        this.applicationEnginesNpm,
+        this.applicationJson.engines ? this.applicationJson.engines.npm : ''
+      )
+    },
+    _cApplicationCompany() {
+      return this._firstNotEmpty(this.applicationCompany, this.applicationJson.company)
+    }
+  },
+  mounted() {
     this.i18n = lang[this.language]
-	},
-};
+  }
+}
 </script>
 
 <docs>
