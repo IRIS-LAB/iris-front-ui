@@ -1,4 +1,4 @@
-# iris-elements
+# iris-ui-elements
 
 ## Project setup
 
@@ -6,10 +6,16 @@
 npm install
 ```
 
-### Compiles and minifies for production
+### Compiles and minifies library VueJs for production
 
 ```
-npm run build-bundle
+npm run build
+```
+
+### Compiles and minifies library WebComponents for production
+
+```
+npm run build:wc
 ```
 
 ### Run your tests
@@ -24,10 +30,10 @@ npm run test
 npm run styleguide
 ```
 
-### Use the library to another project
+### Use the library with another project
 
 ```
-npm install --save iris-elements
+npm install --save iris-ui-elements
 ```
 
 ### Customize configuration

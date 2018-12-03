@@ -1,12 +1,12 @@
 {
-  "name": "iris-elements",
-  "version": "0.2.2",
+  "name": "iris-ui-elements",
+  "version": "0.2.5",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build --target lib --name iris-elements ./src/main.js",
-    "build:global": "vue-cli-service build --target wc --name iris-elements ./src/main.js",
+    "build": "vue-cli-service build --target lib --name iris-ui-elements ./src/main.js --dest dist",
+    "build:wc": "vue-cli-service build --target wc --name iris-ui-elements-wc ./src/main-wc.js --dest dist-wc",
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build",
     "test:unit": "vue-cli-service test:unit"
@@ -62,5 +62,5 @@
     "*.json",
     "*.js"
   ],
-  "main": "./dist/iris-elements.common.js"
+  "main": "./dist/iris-ui-elements.common.js"
 }
