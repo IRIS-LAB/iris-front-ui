@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h2>{{ i18n.aboutTitle }} {{ _cApplicationName }}</h2>
-    <h3>{{ packageJson.name }} v{{ packageJson.version }}</h3>
+    <span>{{ i18n.aboutTitle }} {{ _cApplicationName }}</span>
+    <br>
+    <span>{{ packageJson.name }} v{{ packageJson.version }}</span>
+    <br>
     <span>{{ _cApplicationDescription }}</span>
     <br>
     <br>
@@ -32,7 +34,7 @@
   </div>
 </template>
 <script>
-import IrisUtils from '../mixins/IrisUtils.js'
+import IrisUtils from '../../mixins/IrisUtils.js'
 import lang from '../../assets/lang/i18n.js'
 /**
  * ### Description
@@ -150,7 +152,7 @@ export default {
   #### Prerequisites
 
   In your `main.js`, create a constant in a global mixins to serialize `package.json`.
-  You can add the information about the application in the another constants.
+  You can add information about the application in the another constants.
 
   ```html
     Vue.mixin({
@@ -165,15 +167,7 @@ export default {
 
   #### Object entries Example 
 
-```vue 
-  <iris-about
-    :package-json="PACKAGE_JSON"
-    :application-json="APPLICATION_JSON"
-    language="fr"
-  ></iris-about>
-  ```
-
-  ```html 
+  ```vue 
   <iris-about
     :package-json="PACKAGE_JSON"
     :application-json="APPLICATION_JSON"
@@ -183,20 +177,6 @@ export default {
   #### String entries Example 
 
   ```vue 
-  <iris-about
-    :package-json="PACKAGE_MODULE"
-    application-name="Another application"
-    application-description="The description of the application"
-    application-company="U GIE Iris"
-    application-copyright-year="2018"
-    application-engines-node="5.0"
-    application-engines-npm="7.0"
-    application-team="AIL"
-    language="en"
-  ></iris-about>
-  ```
-
-  ```html 
   <iris-about
     :package-json="PACKAGE_MODULE"
     application-name="Another application"
