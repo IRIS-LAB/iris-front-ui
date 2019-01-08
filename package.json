@@ -1,6 +1,6 @@
 {
   "name": "iris-ui-elements",
-  "version": "0.2.5",
+  "version": "0.2.5-SNAPSHOT",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
