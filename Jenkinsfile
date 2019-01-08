@@ -8,5 +8,6 @@ continuousIntegration(
     authProvider: 'none',
     skipIntegrationTests: false,
     targetedMiddleware: 'APACHE',
-    deployer: 'docker_ee'
+    deployer: 'docker_ee',
+    performRelease: true
 )
