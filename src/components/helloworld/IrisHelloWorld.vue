@@ -58,5 +58,4 @@ export default {
 ```html
 <iris-helloworld username="benjamin"></iris-helloworld>
 ```
-
 </docs>
