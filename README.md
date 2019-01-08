@@ -36,6 +36,6 @@ npm run styleguide
 npm install --save iris-ui-elements
 ```
 
-### Customize configuration
+### How add a new component
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Wiki](https://wikidev.groupement.systeme-u.fr/wikidev/doku.php/tran/java/socle/frontjs/librairie_commune_de_composants_ui_vuejs?s[]=iris&s[]=ui&s[]=elements).
