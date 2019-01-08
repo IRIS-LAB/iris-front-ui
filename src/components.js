@@ -1,9 +1,11 @@
 import IrisAbout from './components/about/IrisAbout'
+import IrisDialogIcon from './components/dialog/IrisDialogIcon'
 import IrisHelloWorld from './components/helloworld/IrisHelloWorld'
 
 const Components = {
-  IrisHelloWorld,
-  IrisAbout
+  IrisAbout,
+  IrisDialogIcon,
+  IrisHelloWorld
 }
 
 export default Components
