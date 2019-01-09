@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('gie@develop') _
+@Library('gie') _
 
 continuousIntegration(
     contextRoot: 'iris-ui-elements',
