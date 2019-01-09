@@ -3,6 +3,6 @@
  */
 module.exports = {
   css: {
-    extract: false
+    extract: true
   }
 }
