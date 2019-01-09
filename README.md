@@ -30,10 +30,17 @@ npm run test
 npm run styleguide
 ```
 
-### Use the library with another project
+### Use the library in another project
 
 ```
 npm install --save iris-ui-elements
+```
+
+In your main.js, add the imports
+
+```
+import 'iris-ui-elements'
+import 'iris-ui-elements/dist/iris-ui-elements.css'
 ```
 
 ### How add a new component
