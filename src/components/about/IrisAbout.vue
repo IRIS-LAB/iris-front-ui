@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="parent-about">
     <span>{{ i18n.aboutTitle }} {{ _cApplicationName }}</span>
     <br>
     <span>{{ packageJson.name }} v{{ packageJson.version }}</span>
@@ -145,6 +145,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+.parent-about {
+  text-align: left;
+}
+</style>
 
 <docs>
   ### Examples 

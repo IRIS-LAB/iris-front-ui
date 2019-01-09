@@ -1,9 +1,9 @@
 // styleguide/global.requires.js
 import Vue from 'vue'
-import ElementUI from '../node_modules/element-ui'
+import { Dialog } from 'element-ui'
 import '../node_modules/element-ui/lib/theme-chalk/index.css'
 
-Vue.use(ElementUI)
+Vue.use(Dialog)
 
 Vue.mixin({
   data: function() {
