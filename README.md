@@ -1,4 +1,4 @@
-# iris-ui-elements
+# iris-front-ui
 
 ## Project setup
 
@@ -33,14 +33,14 @@ npm run styleguide
 ### Use the library in another project
 
 ```
-npm install --save iris-ui-elements
+npm install --save iris-front-ui
 ```
 
 In your main.js, add the imports
 
 ```
-import 'iris-ui-elements'
-import 'iris-ui-elements/dist/iris-ui-elements.css'
+import 'iris-front-ui'
+import 'iris-front-ui/dist/iris-front-ui.css'
 ```
 
 ### How add a new component
