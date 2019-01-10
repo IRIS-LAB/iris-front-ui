@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   // set your styleguidist configuration here
-  title: 'Iris Elements',
+  title: 'Iris Front UI',
   defaultExample: false,
   exampleMode: 'expand',
   pagePerSection: true,
@@ -15,7 +15,4 @@ module.exports = {
       components: 'src/components/**/[A-Z]*.vue'
     }
   ]
-  // webpackConfig: {
-  //   // custom config goes here
-  // }
 }
