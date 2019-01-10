@@ -34,8 +34,9 @@
   </div>
 </template>
 <script>
-import IrisUtils from '../../mixins/IrisUtils.js'
+import { IrisUtils } from '../../mixins/IrisUtils.js'
 import lang from '../../assets/lang/i18n.js'
+
 /**
  * ### Description
  *
