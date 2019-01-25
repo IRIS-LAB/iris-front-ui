@@ -145,7 +145,7 @@ export default {
 </div>
 ```
 
-#### AVATAR WITH DEFAULT TOOLTIP
+#### AVATAR WITH IMAGE, USERNAME AND NO ARROW
 ```vue
 <div style="display:flex">
 <!-- Avatar with image, tooltip with a different text, no arrow, default dropdown menu with username -->
