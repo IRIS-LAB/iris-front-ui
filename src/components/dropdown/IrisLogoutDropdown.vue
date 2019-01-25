@@ -95,7 +95,7 @@ export default {
      * @event logout
      * @type {Event}
      */
-    logout: function(event) {
+    logout(event) {
       this.$emit('logout', event)
     }
   },
@@ -121,43 +121,39 @@ export default {
 <docs>
 ### Examples
 
-#### Simple Example
-
+#### JUST THE ARROW
 ```vue
 <div style="display:flex">
-<!-- Example 1 : Pas d'avatar, pas de nom d'utilisateur, pas de tooltip, dropdown menu par défaut -->
+<!-- No avatar, no username, no tooltip, default dropdown menu -->
   <iris-logout-dropdown></iris-logout-dropdown>
+</div>
+```
 
-<!-- Example 2 : Avatar avec initiales, tooltip par défaut, dropdown menu par défaut -->
-  <iris-logout-dropdown :tooltip="true" v-on:logout="logoutFunction">
-    <template slot="avatar">
-  <iris-avatar username="Franck Rovost"></iris-avatar>
-</template>
-    <template slot="content">
-  <el-dropdown-item v-on:click.native="plusMethod">Plus</el-dropdown-item>
-  <el-dropdown-item v-on:click.native="petitPlusMethod">Petit plus</el-dropdown-item>
-</template>
-  </iris-logout-dropdown>
-
-<!-- Example 3 : En anglais, avatar avec image, sans flèche, tooltip par défaut, des menus additionnels dans le dropdown menu -->
-  <iris-logout-dropdown  language="en" :tooltip="true" :arrow="false" username="Homer Simpson" v-on:logout="logoutFunction">
+#### AVATAR WITH TOOLTIP AND ADDITIONAL CONTENT
+```vue
+<div style="display:flex">
+<!-- English labels, avatar with initials, default tooltip, additional menus in the dropdown menu without username -->
+  <iris-logout-dropdown  language="en" :tooltip="true" v-on:logout="">
     <template slot="avatar">
   <iris-avatar username="Enrico Nacias"></iris-avatar>
 </template>
     <template slot="content">
-  <el-dropdown-item v-on:click.native="plusMethod">Plus</el-dropdown-item>
-  <el-dropdown-item v-on:click.native="petitPlusMethod">Petit plus</el-dropdown-item>
+  <el-dropdown-item v-on:click.native>More</el-dropdown-item>
+  <el-dropdown-item v-on:click.native>A Bit More</el-dropdown-item>
 </template>
   </iris-logout-dropdown>
+</div>
+```
 
-<!-- Example 4 : Avatar avec image, sans flèche, tooltip avec texte différent, des menus additionnels dans le dropdown menu -->
-  <iris-logout-dropdown  src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png":tooltip="true" tooltipContent="Déconnexion utilisateur" v-on:logout="logoutFunction">
+#### AVATAR WITH DEFAULT TOOLTIP
+```vue
+<div style="display:flex">
+<!-- Avatar with image, tooltip with a different text, no arrow, default dropdown menu with username -->
+  <iris-logout-dropdown :arrow="false"  username="Homer Simpson" src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png":tooltip="true" tooltipContent="Déconnexion utilisateur" v-on:logout="">
     <template slot="avatar">
   <iris-avatar src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png"></iris-avatar>
 </template>
   </iris-logout-dropdown>
-</div>
-
 </div>
 ```
 </docs>
