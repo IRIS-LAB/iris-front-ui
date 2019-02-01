@@ -83,8 +83,6 @@ export default {
   }
 }
 </script>
-<style scoped>
-</style>
 
 <docs>
 ### Examples
