@@ -55,7 +55,7 @@ export default {
 
 #### Simple Example
 
-```html
+```vue
 <iris-helloworld username="benjamin"></iris-helloworld>
 ```
 </docs>

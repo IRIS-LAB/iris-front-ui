@@ -41,6 +41,15 @@ In your main.js, add the imports
 ```
 import 'iris-front-ui'
 import 'iris-front-ui/dist/iris-front-ui.css'
+// If you want importing all the components from the library and use them
+import IrisFronUI from 'iris-front-ui'
+Vue.use(IrisFronUI)
+// If you want importing and use only a few components from the library
+import { IrisHelloWorld, IrisAbout } from 'iris-front-ui'
+Vue.use(IrisHelloWorld)
+Vue.use(IrisAbout)
+// A tester
+Vue.use(IrisHelloWorld, IrisAbout)
 ```
 
 ### How add a new component
