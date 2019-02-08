@@ -12,11 +12,11 @@
         <i class="el-icon-caret-bottom arrow-icon" v-if="arrow"></i>
       </div>
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item v-if="!usernameEmpty" disabled id="username">{{username}}</el-dropdown-item>
+        <el-dropdown-item id="username" v-if="!usernameEmpty" disabled>{{username}}</el-dropdown-item>
         <!-- @slot For adding 'el-dropdown-item' components to the dropdown menu -->
         <slot name="content"></slot>
-        <el-dropdown-item id="logout" :divided="displayDivided">
-          <span @click="logout($event)">{{i18n.logout}}</span>
+        <el-dropdown-item :divided="displayDivided">
+          <span id="logout" @click="logout($event)">{{i18n.logout}}</span>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
