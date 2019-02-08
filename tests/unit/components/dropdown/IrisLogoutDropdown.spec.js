@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import IrisLogoutDropdown from '@/components/dropdown/IrisLogoutDropdown'
 import Vue from 'vue'
 import { Dropdown, DropdownMenu, DropdownItem, Tooltip } from 'element-ui'
+import lang from '@/assets/lang/i18n.js'
 
 Vue.use(Dropdown)
 Vue.use(DropdownMenu)
@@ -85,6 +86,17 @@ describe('IrisLogoutDropdown.vue', () => {
       expect(wrapper.vm.usernameEmpty).toBe(true)
       expect(wrapper.find('#username').exists()).toBe(false)
     })
+
+    it('should have logout in fr', () => {
+      expect(wrapper.find('#logout').text()).toContain(lang['fr'].logout)
+    })
+
+    // it('should have logout in en', () => {
+    //   wrapper.setProps({ language: 'en' })
+    //   expect(wrapper.find('#logout').text()).toContain(lang['en'].logout)
+    // })
+
+    describe('Slots', () => {})
   })
 
   describe('Events', () => {
