@@ -14,7 +14,6 @@ describe('IrisLogoutDropdown.vue', () => {
   let props
 
   beforeEach(() => {
-    // create a new instance before each test
     wrapper = mount(IrisLogoutDropdown)
     props = wrapper.vm.$options.props
   })
@@ -79,7 +78,7 @@ describe('IrisLogoutDropdown.vue', () => {
       wrapper.setProps({ username: 'Homer Simpson' })
       wrapper.setData({ usernameEmpty: false })
       expect(wrapper.vm.usernameEmpty).toBe(false)
-      expect(wrapper.find('#username').text()).toContain('Homer Simpson')
+      expect(wrapper.find('#username').text()).toEqual('Homer Simpson')
     })
 
     it('should not have username', () => {
@@ -87,16 +86,49 @@ describe('IrisLogoutDropdown.vue', () => {
       expect(wrapper.find('#username').exists()).toBe(false)
     })
 
-    it('should have logout in fr', () => {
-      expect(wrapper.find('#logout').text()).toContain(lang['fr'].logout)
+    it('should have the logout label in french', () => {
+      expect(wrapper.find('#logout').text()).toEqual(lang['fr'].logout)
     })
 
-    // it('should have logout in en', () => {
-    //   wrapper.setProps({ language: 'en' })
-    //   expect(wrapper.find('#logout').text()).toContain(lang['en'].logout)
-    // })
+    it('should have the logout label in english', () => {
+      const language = 'en'
+      const wrapperWithProps = mount(IrisLogoutDropdown, {
+        propsData: {
+          language
+        }
+      })
+      wrapperWithProps.setProps({ language })
+      expect(wrapperWithProps.find('#logout').text()).toEqual(lang[language].logout)
+    })
 
-    describe('Slots', () => {})
+    describe('Slots', () => {
+      it('Avatar slot is rendered', () => {
+        const wrapperWithSlot = mount(IrisLogoutDropdown, {
+          stubs: ['iris-avatar'],
+          slots: {
+            avatar: `<iris-avatar id="slotAvatarExample" username="Enrico Nacias"></iris-avatar>`
+          }
+        })
+        expect(wrapperWithSlot.find('#slotAvatarExample').exists()).toBe(true)
+      })
+
+      it('Content slot is rendered withing ul.el-dropdown-menu', () => {
+        const idSlotOne = 'slotContentExampleOne'
+        const slotTextOne = 'Text example one'
+        const idSlotTwo = 'slotContentExampleTwo'
+        const slotTextTwo = 'Text example two'
+        const wrapperWithSlot = mount(IrisLogoutDropdown, {
+          slots: {
+            content: `  <el-dropdown-item class="slot-class" id="${idSlotOne}" v-on:click.native>${slotTextOne}</el-dropdown-item>
+                        <el-dropdown-item class="slot-class" id="${idSlotTwo}" v-on:click.native>${slotTextTwo}</el-dropdown-item>`
+          }
+        })
+        const list = wrapperWithSlot.find('ul.el-dropdown-menu')
+        expect(list.findAll('.slot-class').length).toBe(2)
+        expect(wrapperWithSlot.find(`#${idSlotOne}`).text()).toBe(slotTextOne)
+        expect(wrapperWithSlot.find(`#${idSlotTwo}`).text()).toBe(slotTextTwo)
+      })
+    })
   })
 
   describe('Events', () => {
@@ -108,13 +140,13 @@ describe('IrisLogoutDropdown.vue', () => {
       expect(wrapper.vm.logout).toBeCalled()
     })
 
-    it('should trigger a logout event when a logout method is called', () => {
+    it('should trigger a logoutEvent event when a logout method is called', () => {
       const stub = jest.fn()
       wrapper.vm.$on('logout', stub)
 
       wrapper.vm.logout()
 
-      expect(wrapper.emitted('logout')).toBeTruthy()
+      expect(wrapper.emitted('logoutEvent')).toBeTruthy()
     })
   })
 })

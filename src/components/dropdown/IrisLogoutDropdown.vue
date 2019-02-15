@@ -28,7 +28,7 @@ import lang from '../../assets/lang/i18n.js'
  * ### Description
  *
  * Display a dropdown with a logout button.
- * When the button is clicked, a 'logout' event can be catched
+ * When the button is clicked, a 'logoutEvent' event can be catched
  * @author Alan Duchêne
  * @version 1.0.0
  *
@@ -41,7 +41,7 @@ export default {
   name: 'iris-logout-dropdown',
   props: {
     /**
-     * Language `en, fr`
+     * Language `fr, en`
      */
     language: {
       type: String,
@@ -92,11 +92,11 @@ export default {
   methods: {
     /**
      * Triggered when the logout button is clicked
-     * @event logout
+     * @event logoutEvent
      * @type {Event}
      */
     logout(event) {
-      this.$emit('logout', event)
+      this.$emit('logoutEvent', event)
     }
   },
   mounted() {
@@ -149,7 +149,7 @@ export default {
 ```vue
 <div style="display:flex">
 <!-- Avatar with image, tooltip with a different text, no arrow, default dropdown menu with username -->
-  <iris-logout-dropdown :arrow="false"  username="Homer Simpson" src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png":tooltip="true" tooltipContent="Déconnexion utilisateur" v-on:logout="">
+  <iris-logout-dropdown :arrow="false"  username="Homer Simpson" src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png":tooltip="true" tooltipContent="Déconnexion utilisateur" v-on:logoutEvent="">
     <template slot="avatar">
   <iris-avatar src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png"></iris-avatar>
 </template>
