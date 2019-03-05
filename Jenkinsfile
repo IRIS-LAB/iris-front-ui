@@ -4,7 +4,5 @@
 
 continuousIntegration(
     builder: 'npm',
-    authProvider: 'none',
-    skipIntegrationTests: false,
-    performRelease: true
+    deployer: 'none'
 )
