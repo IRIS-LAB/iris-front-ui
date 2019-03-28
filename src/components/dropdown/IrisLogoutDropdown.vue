@@ -149,7 +149,7 @@ export default {
 ```vue
 <div style="display:flex">
 <!-- Avatar with image, tooltip with a different text, no arrow, default dropdown menu with username -->
-  <iris-logout-dropdown :arrow="false"  username="Homer Simpson" src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png":tooltip="true" tooltipContent="Déconnexion utilisateur" v-on:logoutEvent="">
+  <iris-logout-dropdown :arrow="false"  username="Homer Simpson" src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png" :tooltip="true" tooltipContent="Déconnexion utilisateur" v-on:logoutEvent="">
     <template slot="avatar">
   <iris-avatar src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png"></iris-avatar>
 </template>

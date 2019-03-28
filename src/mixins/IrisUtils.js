@@ -7,7 +7,7 @@ export const IrisUtils = {
       return value == null || value == undefined || value === ''
     },
     _firstNotEmpty(...strs) {
-      for (let str of strs) {
+      for (const str of strs) {
         if (!this._isEmpty(str)) {
           return str
         }
