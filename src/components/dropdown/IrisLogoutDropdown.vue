@@ -34,6 +34,13 @@ import lang from '../../assets/lang/i18n.js'
  *
  * ### Styling
  *
+ * The following custom variables are available for styling:
+ *
+ * | Custom variable  | Description  | Default  |
+ * |---|---|---|
+ * | <b>--iris-logout-dropdown-color</b>  | Font color | <i>black</i> |
+ * | <b>--iris-logout-dropdown-font-family</b>  | Font family | <i>arial</i> |
+ * | <b>--iris-logout-dropdown-font-size</b>  | Font size | <i>1em</i> |
  *
  * ### Properties and Methods
  */
@@ -116,6 +123,11 @@ export default {
   bottom: 0;
   font-size: 20px;
 }
+#logout {
+  color: var(--iris-logout-dropdown-color);
+  font-family: var(--iris-logout-dropdown-font-family);
+  font-size: var(--iris-logout-dropdown-font-size);
+}
 </style>
 
 <docs>
@@ -133,7 +145,7 @@ export default {
 ```vue
 <div style="display:flex">
 <!-- English labels, avatar with initials, default tooltip, additional menus in the dropdown menu without username -->
-  <iris-logout-dropdown  language="en" :tooltip="true" v-on:logout="">
+  <iris-logout-dropdown  language="en" :tooltip="true" v-on:logoutEvent="">
     <template slot="avatar">
   <iris-avatar username="Enrico Nacias"></iris-avatar>
 </template>
@@ -149,7 +161,7 @@ export default {
 ```vue
 <div style="display:flex">
 <!-- Avatar with image, tooltip with a different text, no arrow, default dropdown menu with username -->
-  <iris-logout-dropdown :arrow="false"  username="Homer Simpson" src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png":tooltip="true" tooltipContent="Déconnexion utilisateur" v-on:logoutEvent="">
+  <iris-logout-dropdown :arrow="false"  username="Homer Simpson" src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png" :tooltip="true" tooltipContent="Déconnexion utilisateur" v-on:logoutEvent="">
     <template slot="avatar">
   <iris-avatar src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png"></iris-avatar>
 </template>

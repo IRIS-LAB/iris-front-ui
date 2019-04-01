@@ -4,15 +4,16 @@
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "lint": "vue-cli-service lint",
+    "lint": "vue-cli-service lint --no-fix",
     "build": "vue-cli-service build --target lib --name iris-front-ui ./src/main.js --dest dist --mode production",
     "build:wc": "vue-cli-service build --target wc --name iris-front-ui-wc ./src/main-wc.js --dest dist-wc --mode production",
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build",
-    "test:unit": "vue-cli-service test:unit"
+    "unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "@vue/web-component-wrapper": "^1.2.0",
+    "core-js": "^2.5.7",
     "vue": "^2.5.17",
     "vue-avatar": "^2.1.7",
     "vue-cli-plugin-styleguidist": "^0.1.9",

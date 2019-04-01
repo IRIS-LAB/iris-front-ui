@@ -7,6 +7,7 @@ module.exports = {
   exampleMode: 'expand',
   pagePerSection: true,
   usageMode: 'expand',
+  styleguideDir: 'docs',
   components: 'src/components/**/[A-Z]*.vue',
   require: [path.join(__dirname, 'styleguide/global.requires.js')],
   sections: [

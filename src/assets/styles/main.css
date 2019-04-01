@@ -1,3 +1,6 @@
 :root {
   --iris-helloworld-color: blue;
+  --iris-logout-dropdown-color: black;
+  --iris-logout-dropdown-font-family: arial;
+  --iris-logout-dropdown-font-size: 1em;
 }
