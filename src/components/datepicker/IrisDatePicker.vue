@@ -1,6 +1,5 @@
 <template>
   <div ref="vdpicker" @click="updatePickerNudge()">
-    {{clearable}}
     <v-menu
       v-model="displayMenu"
       :disabled="disabled"
@@ -81,6 +80,10 @@ export default {
      */
     placeholderDate: { type: String, required: false },
     /**
+     * Initialize picker date value to a given date instead of today date. The expected format is YYYY-MM-DD as string
+     */
+    pickerDateInit: { type: String, required: false },
+    /**
      * Locale for picker display format. Supported locales are:
      * <ul>
      * <li><b>en</b>: English</li>
@@ -154,9 +157,12 @@ export default {
 
       let date = this.fromMomentToString(this.pickerDate)
       // Return date if it exists or placeholder
-      return date
-        ? date
-        : this.fromMomentToString(this.fromStringToMoment(this.placeholderDate, 'YYYY-MM-DD'))
+      if (date) return date
+      else if (this.placeholderDate)
+        return this.fromMomentToString(this.fromStringToMoment(this.placeholderDate, 'YYYY-MM-DD'))
+      else if (this.pickerDateInit)
+        return this.fromMomentToString(this.fromStringToMoment(this.pickerDateInit, 'YYYY-MM-DD'))
+      else return null
     },
     dateAsTextFieldFormat() {
       if (this.syncedPickerDate)

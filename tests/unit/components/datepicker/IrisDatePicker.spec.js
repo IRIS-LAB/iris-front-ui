@@ -54,7 +54,8 @@ describe('IrisDatePicker.vue', () => {
         disabled: true,
         rules: [true, false],
         clearable: false,
-        validateOnBlur: true
+        validateOnBlur: true,
+        pickerDateInit: '2019-12-21'
       })
 
       expect(wrapper.vm.label).toBe('label')
@@ -66,6 +67,7 @@ describe('IrisDatePicker.vue', () => {
       expect(wrapper.vm.rules).toEqual([true, false])
       expect(wrapper.vm.clearable).toBe(false)
       expect(wrapper.vm.validateOnBlur).toBe(true)
+      expect(wrapper.vm.pickerDateInit).toBe('2019-12-21')
     })
 
     it('should have the correct required value', () => {
@@ -78,6 +80,7 @@ describe('IrisDatePicker.vue', () => {
       expect(props.rules.required).toBeFalsy()
       expect(props.clearable.required).toBeFalsy()
       expect(props.validateOnBlur.required).toBeFalsy()
+      expect(props.pickerDateInit.required).toBeFalsy()
     })
 
     it('should have the correct type', () => {
@@ -90,6 +93,7 @@ describe('IrisDatePicker.vue', () => {
       expect(props.rules.type).toBe(Array)
       expect(props.clearable.type).toBe(Boolean)
       expect(props.validateOnBlur.type).toBe(Boolean)
+      expect(props.pickerDateInit.type).toBe(String)
     })
   })
 
@@ -114,7 +118,7 @@ describe('IrisDatePicker.vue', () => {
       wrapper.find({ ref: 'dptextfield' }).trigger('keyborad', { key: 'Enter' })
 
       // Wait some time before checking triggered event
-      setTimeout(() => expect(wrapper.vm.emitInput).toBeCalled(), 500)
+      setTimeout(() => expect(wrapper.vm.emitInput).toBeCalled(), 50)
     })
   })
 })
