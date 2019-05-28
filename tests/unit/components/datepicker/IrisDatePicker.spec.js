@@ -102,9 +102,9 @@ describe('IrisDatePicker.vue', () => {
       wrapper.vm.emitInput = jest.fn()
 
       wrapper.find({ ref: 'dptextfield' }).trigger('click')
-      clickElementWhenInDOM(wrapper, 'div.v-date-picker-table button.v-btn')
+      setTimeout(() => wrapper.find('div.v-date-picker-table button.v-btn').trigger('click'), 50)
 
-      expect(wrapper.vm.emitInput).toBeCalled()
+      setTimeout(() => expect(wrapper.vm.emitInput).toBeCalled(), 50)
     })
 
     it('should call the emitInput function when keyboard input on input-text', () => {
@@ -122,11 +122,3 @@ describe('IrisDatePicker.vue', () => {
     })
   })
 })
-
-const clickElementWhenInDOM = (wrapper, selector) => {
-  const isElementInDOM = selector => wrapper.find(selector).exists()
-
-  while (!isElementInDOM(selector)) {}
-
-  wrapper.find(selector).trigger('click')
-}
