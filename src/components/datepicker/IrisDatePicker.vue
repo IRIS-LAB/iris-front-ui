@@ -12,6 +12,7 @@
       full-width
       max-width="290px"
       min-width="290px"
+      :close-on-click="false"
     >
       <v-text-field
         ref="dptextfield"
@@ -134,6 +135,7 @@ export default {
     errorMessages: [],
     nudgeRight: 0,
     nudgeTop: 0,
+    isPickerOpened: false,
     labels: {
       en: {
         invalidDate: 'Invalid date'
@@ -148,6 +150,7 @@ export default {
     this.alowedChars = Array.from(
       new Set(this.textFieldDateFormat.replace(/[A-Za-z]/g, '').split(''))
     )
+    document.addEventListener('click', this.handleClick)
   },
   computed: {
     dateAsPickerDateFormat() {
@@ -180,12 +183,15 @@ export default {
   methods: {
     setDateFromDatePicker(val) {
       this.displayMenu = false
+      this.isPickerOpened = false
       if (!val) return
 
       this.errorMessages = []
-      this.pickerDate = this.fromStringToMoment(val, 'YYYY-MM-DD')
 
+      this.pickerDate = this.fromStringToMoment(val, 'YYYY-MM-DD')
       this.emitInput(this.fromMomentToString(this.pickerDate))
+
+      this.$refs.dptextfield.focus()
     },
     setDateFromTextFieldFormat(event) {
       const val = event.target.value
@@ -213,6 +219,8 @@ export default {
     clearDate() {
       this.pickerDate = null
       this.emitInput(null)
+      this.isPickerOpened = false
+      this.displayMenu = false
     },
     checkChar(evt) {
       if (evt.key === 'Enter') {
@@ -306,7 +314,25 @@ export default {
     },
     getLabel(key) {
       return this.labels[this.locale][key]
+    },
+    handleClick(evt) {
+      evt.stopPropagation()
+      if (this.$refs.vdpicker) {
+        if (!this.$refs.vdpicker.contains(evt.target)) {
+          this.displayMenu = false
+          this.isPickerOpened = false
+        } else if (this.$refs.vdpicker.contains(evt.target) && !this.isPickerOpened) {
+          this.displayMenu = true
+          this.isPickerOpened = true
+        } else if (this.$refs.vdpicker.contains(evt.target) && this.isPickerOpened) {
+          this.displayMenu = false
+          this.isPickerOpened = false
+        }
+      }
     }
+  },
+  beforeDestroy() {
+    document.removeEventListener('click', this.handleClick)
   },
   watch: {
     dateData: {
