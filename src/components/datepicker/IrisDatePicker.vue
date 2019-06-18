@@ -40,6 +40,7 @@
         @input="setDateFromDatePicker"
         :locale="locale"
         v-if="!disabled"
+        :first-day-of-week="firstDayOfWeek"
       ></v-date-picker>
     </v-menu>
   </div>
@@ -92,7 +93,7 @@ export default {
      * </ul>
      *
      */
-    locale: { type: String, required: false, default: 'en' },
+    locale: { type: String, required: false, default: 'fr' },
     /**
      * Boolean alowing activation/deactivation of the component (grayed out and not selectable).<br>
      * <ul>
@@ -125,7 +126,11 @@ export default {
      * <li><b>false</b>: rules are checked in realtime</li>
      * </ul>
      */
-    validateOnBlur: { type: Boolean, default: false, required: false }
+    validateOnBlur: { type: Boolean, default: false, required: false },
+    /**
+     * Sets the first day of the week, starting with 0 for sunday (1 for monday).
+     */
+    firstDayOfWeek: { type: [String, Number], default: 1, required: false }
   },
   data: () => ({
     pickerDate: undefined,
