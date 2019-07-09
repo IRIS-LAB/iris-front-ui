@@ -56,7 +56,7 @@ Vue.use(IrisHelloWorld, IrisAbout)
 
 See [Wiki](https://wikidev.groupement.systeme-u.fr/wikidev/doku.php/tran/java/socle/frontjs/librairie_commune_de_composants_ui_vuejs?s[]=iris&s[]=ui&s[]=elements).
 
-## Regénérer la doc
+## Generate the documentation
 
 npm run styleguide:build
 
