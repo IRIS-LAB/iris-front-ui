@@ -18,10 +18,10 @@ npm run build
 npm run build:wc
 ```
 
-### Run your tests
+### Run your unit tests
 
 ```
-npm run test:unit
+npm run unit
 ```
 
 ### Run documentation server

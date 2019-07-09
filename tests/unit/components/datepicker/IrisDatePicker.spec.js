@@ -37,11 +37,14 @@ describe('IrisDatePicker.vue', () => {
 
     it('should have the correct default props', () => {
       expect(wrapper.vm.textFieldDateFormat).toBe('DD/MM/YYYY')
-      expect(wrapper.vm.locale).toBe('en')
+      expect(wrapper.vm.locale).toBe('fr')
       expect(wrapper.vm.disabled).toBe(false)
       expect(wrapper.vm.rules).toEqual([])
       expect(wrapper.vm.clearable).toBe(true)
       expect(wrapper.vm.validateOnBlur).toBe(false)
+      expect(wrapper.vm.firstDayOfWeek).toBe(1)
+      expect(wrapper.vm.type).toBe('date')
+      expect(wrapper.vm.format).toBe('YYYY-MM-DD')
     })
 
     it('should have the correct overloaded props', () => {
@@ -50,24 +53,30 @@ describe('IrisDatePicker.vue', () => {
         dateData: '2019-04-12',
         textFieldDateFormat: 'DD.MM.YYYY',
         placeholderDate: '2019-04-12',
-        locale: 'fr',
+        locale: 'en',
         disabled: true,
         rules: [true, false],
         clearable: false,
         validateOnBlur: true,
-        pickerDateInit: '2019-12-21'
+        pickerDateInit: '2019-12-21',
+        firstDayOfWeek: 0,
+        type: 'month',
+        format: 'YYYY-MM'
       })
 
       expect(wrapper.vm.label).toBe('label')
       expect(wrapper.vm.dateData).toBe('2019-04-12')
       expect(wrapper.vm.textFieldDateFormat).toBe('DD.MM.YYYY')
       expect(wrapper.vm.placeholderDate).toBe('2019-04-12')
-      expect(wrapper.vm.locale).toBe('fr')
+      expect(wrapper.vm.locale).toBe('en')
       expect(wrapper.vm.disabled).toBe(true)
       expect(wrapper.vm.rules).toEqual([true, false])
       expect(wrapper.vm.clearable).toBe(false)
       expect(wrapper.vm.validateOnBlur).toBe(true)
       expect(wrapper.vm.pickerDateInit).toBe('2019-12-21')
+      expect(wrapper.vm.firstDayOfWeek).toBe(0)
+      expect(wrapper.vm.type).toBe('month')
+      expect(wrapper.vm.format).toBe('YYYY-MM')
     })
 
     it('should have the correct required value', () => {
@@ -81,6 +90,9 @@ describe('IrisDatePicker.vue', () => {
       expect(props.clearable.required).toBeFalsy()
       expect(props.validateOnBlur.required).toBeFalsy()
       expect(props.pickerDateInit.required).toBeFalsy()
+      expect(props.firstDayOfWeek.required).toBeFalsy()
+      expect(props.type.required).toBeFalsy()
+      expect(props.format.required).toBeFalsy()
     })
 
     it('should have the correct type', () => {
@@ -94,6 +106,9 @@ describe('IrisDatePicker.vue', () => {
       expect(props.clearable.type).toBe(Boolean)
       expect(props.validateOnBlur.type).toBe(Boolean)
       expect(props.pickerDateInit.type).toBe(String)
+      expect(props.firstDayOfWeek.type).toEqual([String, Number])
+      expect(props.type.type).toBe(String)
+      expect(props.format.type).toBe(String)
     })
   })
 

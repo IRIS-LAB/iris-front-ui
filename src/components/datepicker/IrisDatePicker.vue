@@ -41,6 +41,7 @@
         :locale="locale"
         v-if="!disabled"
         :first-day-of-week="firstDayOfWeek"
+        :type="type"
       ></v-date-picker>
     </v-menu>
   </div>
@@ -130,7 +131,15 @@ export default {
     /**
      * Sets the first day of the week, starting with 0 for sunday (1 for monday).
      */
-    firstDayOfWeek: { type: [String, Number], default: 1, required: false }
+    firstDayOfWeek: { type: [String, Number], default: 1, required: false },
+    /**
+     * Determines the type of the picker - date for date picker, month for month picker.
+     */
+    type: { type: String, default: 'date', required: false },
+    /**
+     * Determines the format of the picker.
+     */
+    format: { type: String, default: 'YYYY-MM-DD', required: false }
   },
   data: () => ({
     pickerDate: undefined,
@@ -161,15 +170,15 @@ export default {
     dateAsPickerDateFormat() {
       if (this.syncedPickerDate)
         // syncedPickerDate exists => currently filling date from intput text
-        return this.fromMomentToString(this.syncedPickerDate, 'YYYY-MM-DD', false)
+        return this.fromMomentToString(this.syncedPickerDate, this.format, false)
 
       let date = this.fromMomentToString(this.pickerDate)
       // Return date if it exists or placeholder
       if (date) return date
       else if (this.placeholderDate)
-        return this.fromMomentToString(this.fromStringToMoment(this.placeholderDate, 'YYYY-MM-DD'))
+        return this.fromMomentToString(this.fromStringToMoment(this.placeholderDate, this.format))
       else if (this.pickerDateInit)
-        return this.fromMomentToString(this.fromStringToMoment(this.pickerDateInit, 'YYYY-MM-DD'))
+        return this.fromMomentToString(this.fromStringToMoment(this.pickerDateInit, this.format))
       else return null
     },
     dateAsTextFieldFormat() {
@@ -180,7 +189,7 @@ export default {
     },
     placeholderDateAsTextFieldFormat() {
       return this.fromMomentToString(
-        this.fromStringToMoment(this.placeholderDate, 'YYYY-MM-DD'),
+        this.fromStringToMoment(this.placeholderDate, this.format),
         this.textFieldDateFormat
       )
     }
@@ -193,7 +202,7 @@ export default {
 
       this.errorMessages = []
 
-      this.pickerDate = this.fromStringToMoment(val, 'YYYY-MM-DD')
+      this.pickerDate = this.fromStringToMoment(val, this.format)
       this.emitInput(this.fromMomentToString(this.pickerDate))
 
       this.$refs.dptextfield.focus()
@@ -271,7 +280,7 @@ export default {
      * @param performDateValidation perform date validation before conversion. Default true
      * @return string date or null if date is null
      */
-    fromMomentToString(date, format = 'YYYY-MM-DD', performDateValidation = true) {
+    fromMomentToString(date, format = this.format, performDateValidation = true) {
       if (date == null) return null
 
       if (performDateValidation && date.isValid()) {
@@ -343,7 +352,7 @@ export default {
     dateData: {
       immediate: true,
       handler(value) {
-        this.pickerDate = value ? moment(value, 'YYYY-MM-DD') : null
+        this.pickerDate = value ? moment(value, this.format) : null
       }
     }
   }
