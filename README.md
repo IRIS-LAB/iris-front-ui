@@ -18,10 +18,10 @@ npm run build
 npm run build:wc
 ```
 
-### Run your tests
+### Run your unit tests
 
 ```
-npm run test:unit
+npm run unit
 ```
 
 ### Run documentation server
@@ -55,3 +55,11 @@ Vue.use(IrisHelloWorld, IrisAbout)
 ### How add a new component
 
 See [Wiki](https://wikidev.groupement.systeme-u.fr/wikidev/doku.php/tran/java/socle/frontjs/librairie_commune_de_composants_ui_vuejs?s[]=iris&s[]=ui&s[]=elements).
+
+## Generate the documentation
+
+npm run styleguide:build
+
+## Refer back to the documentation
+
+https://iris-lab.github.io/iris-front-ui/
