@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('gie@feature/special-characters-projectkeys   ') _
+@Library('gie@feature/special-characters-projectkeys') _
 
 continuousIntegration(
     builder: 'npm',
