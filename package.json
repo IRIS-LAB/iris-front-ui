@@ -45,7 +45,8 @@
     "url-loader": "^1.1.2",
     "vue-cli-plugin-vuetify": "^0.4.6",
     "vue-template-compiler": "^2.6.6",
-    "vuetify-loader": "^1.0.5"
+    "vuetify-loader": "^1.0.5",
+    "buble": "0.19.6"
   },
   "eslintConfig": {
     "root": true,
