@@ -5,8 +5,7 @@ import { Dialog, Icon, Dropdown, DropdownMenu, DropdownItem, Tooltip } from 'ele
 import 'element-ui/lib/theme-chalk/index.css'
 
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
-import Vuetify, { VApp, VMenu, VTextField, VDatePicker } from 'vuetify/lib'
-import 'vuetify/src/stylus/app.styl'
+import vuetify from './plugins/vuetify'
 
 Vue.use(Icon)
 Vue.use(Dialog)
@@ -15,18 +14,6 @@ Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Tooltip)
 
-Vue.use(Vuetify, {
-  components: {
-    VApp,
-    VMenu,
-    VTextField,
-    VDatePicker
-  },
-  theme: {
-    error: '#b71c1c'
-  }
-})
-
 Object.keys(Components).forEach(key => {
-  Vue.component(Components[key].name, Components[key])
+  Vue.component(Components[key].name, { ...Components[key], vuetify })
 })

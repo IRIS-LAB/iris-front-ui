@@ -2,7 +2,6 @@ import { mount } from '@vue/test-utils'
 import IrisAbout from '@/components/about/IrisAbout'
 
 describe('IrisAbout.vue', () => {
-  let wrapper
   const APPLICATION_JSON = {
     name: 'my name',
     description: 'my description',
@@ -23,17 +22,13 @@ describe('IrisAbout.vue', () => {
     }
   }
 
-  beforeEach(() => {
-    // create a new instance before each test
-    wrapper = mount(IrisAbout)
-  })
-
   test('is a Vue instance', () => {
+    const wrapper = mount(IrisAbout)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('render application node without package node', () => {
     // when
-    wrapper.setProps({ applicationJson: APPLICATION_JSON })
+    const wrapper = mount(IrisAbout, { propsData: { applicationJson: APPLICATION_JSON } })
 
     // then
     const globalDiv = wrapper.find('div')
@@ -47,15 +42,17 @@ describe('IrisAbout.vue', () => {
   })
   it('render application node with override', () => {
     // when
-    wrapper.setProps({
-      applicationName: 'an application name',
-      applicationDescription: 'a new description',
-      applicationTeam: 'another team',
-      applicationCopyrightYear: '2019',
-      applicationEnginesNode: '2.0',
-      applicationEnginesNpm: '3.0',
-      applicationCompany: 'another company',
-      applicationJson: APPLICATION_JSON
+    const wrapper = mount(IrisAbout, {
+      propsData: {
+        applicationName: 'an application name',
+        applicationDescription: 'a new description',
+        applicationTeam: 'another team',
+        applicationCopyrightYear: '2019',
+        applicationEnginesNode: '2.0',
+        applicationEnginesNpm: '3.0',
+        applicationCompany: 'another company',
+        applicationJson: APPLICATION_JSON
+      }
     })
 
     // then
@@ -77,7 +74,9 @@ describe('IrisAbout.vue', () => {
   })
   it('render package node', () => {
     // when
-    wrapper.setProps({ packageJson: PACKAGE_JSON })
+    const wrapper = mount(IrisAbout, {
+      propsData: { packageJson: PACKAGE_JSON }
+    })
 
     // then
     const globalDiv = wrapper.find('div')

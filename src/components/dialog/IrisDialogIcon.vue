@@ -48,16 +48,3 @@ i:hover {
   cursor: pointer;
 }
 </style>
-
-<docs>
-  ### Examples 
-
-  #### Prerequisites
-
-  ```vue 
-  <iris-dialog-icon
-    title="My title">
-    <div>My dialog content</div>
-  </iris-dialog-icon>
-  ```
-</docs>

@@ -49,13 +49,3 @@ export default {
   color: var(--iris-helloworld-color);
 }
 </style>
-
-<docs>
-### Examples
-
-#### Simple Example
-
-```vue
-<iris-helloworld username="benjamin"></iris-helloworld>
-```
-</docs>
