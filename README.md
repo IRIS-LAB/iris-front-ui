@@ -1,4 +1,14 @@
-# iris-front-ui
+<h1 align="center">Welcome to the iris-front-ui project 👋</h1>
+<p>
+  <a href="https://github.com/ugieiris/tutorial-commande-vuejs-webapp#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/ugieiris/tutorial-commande-vuejs-webapp/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+</p>
+
+> iris-front-ui is a Vue UI Library developed and maintained full-time by Systeme-u IRIS.<br />
 
 ## Project setup
 
@@ -51,6 +61,11 @@ Vue.use(IrisAbout)
 // A tester
 Vue.use(IrisHelloWorld, IrisAbout)
 ```
+
+⚠️ It is strongly advised to have in your project the same package versions as described in the iris-front-ui package.json for :
+
+- vue
+- vue-template-compiler
 
 ### How add a new component
 
