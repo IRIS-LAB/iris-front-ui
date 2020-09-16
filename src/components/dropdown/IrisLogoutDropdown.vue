@@ -6,7 +6,7 @@
     :content="tooltipContent != '' ? tooltipContent : this.i18n.user"
   >
     <el-dropdown :style="arrow ? 'margin-right: 20px;' : ''" trigger="click">
-      <div class="slot-wrapper">
+      <div class="slot-wrapper" data-test="irisLogoutDropdownMenuButton">
         <!-- @slot For adding an 'iris-avatar' component -->
         <slot name="avatar"></slot>
         <i class="el-icon-caret-bottom arrow-icon" v-if="arrow"></i>
