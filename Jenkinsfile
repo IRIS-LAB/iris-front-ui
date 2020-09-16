@@ -5,6 +5,5 @@
 continuousIntegration(
     builder: 'npm',
     deployer: 'none',
-    slackChannel: 'socle-stream',
-    forceEligibilityForRelease: 'true'
+    slackChannel: 'socle-stream'
 )
