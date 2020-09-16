@@ -18,7 +18,7 @@
         <!-- @slot For adding 'el-dropdown-item' components to the dropdown menu -->
         <slot name="content"></slot>
         <el-dropdown-item :divided="displayDivided">
-          <span id="logout" @click="logout($event)">{{ i18n.logout }}</span>
+          <span id="logout" @click="logout($event)" data-test="irisLogoutButton">{{ i18n.logout }}</span>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
