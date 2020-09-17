@@ -7,6 +7,7 @@
     :color="color"
     :size="size"
     :rounded="rounded"
+    data-test="irisAvatar"
   ></avatar>
 </template>
 <script>

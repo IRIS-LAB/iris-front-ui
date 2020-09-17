@@ -6,7 +6,7 @@
     :content="tooltipContent != '' ? tooltipContent : this.i18n.user"
   >
     <el-dropdown :style="arrow ? 'margin-right: 20px;' : ''" trigger="click">
-      <div class="slot-wrapper">
+      <div class="slot-wrapper" data-test="irisLogoutDropdownMenuButton">
         <!-- @slot For adding an 'iris-avatar' component -->
         <slot name="avatar"></slot>
         <i class="el-icon-caret-bottom arrow-icon" v-if="arrow"></i>
@@ -18,7 +18,7 @@
         <!-- @slot For adding 'el-dropdown-item' components to the dropdown menu -->
         <slot name="content"></slot>
         <el-dropdown-item :divided="displayDivided">
-          <span id="logout" @click="logout($event)">{{ i18n.logout }}</span>
+          <span id="logout" @click="logout($event)" data-test="irisLogoutButton">{{ i18n.logout }}</span>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
