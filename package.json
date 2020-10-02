@@ -17,6 +17,7 @@
     "fibers": "^4.0.2",
     "material-design-icons-iconfont": "^4.0.5",
     "moment": "^2.24.0",
+    "quagga": "^0.12.1",
     "sass": "^1.26.3",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
