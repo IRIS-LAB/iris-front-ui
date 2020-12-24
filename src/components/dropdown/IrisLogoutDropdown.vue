@@ -17,8 +17,13 @@
         }}</el-dropdown-item>
         <!-- @slot For adding 'el-dropdown-item' components to the dropdown menu -->
         <slot name="content"></slot>
-        <el-dropdown-item :divided="displayDivided">
+        <el-dropdown-item :divided="displayDivided" :disabled="logoutDisabled">
           <span id="logout" @click="logout($event)" data-test="irisLogoutButton">{{ i18n.logout }}</span>
+        </el-dropdown-item>
+        <el-dropdown-item v-if="logoutDisabled && logoutDisabledMessage" style="text-align: center">
+          <el-tooltip :content="logoutDisabledMessage" placement="top">
+            <i class="el-icon-warning"></i>
+          </el-tooltip>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
@@ -88,6 +93,22 @@ export default {
       type: Boolean,
       required: false,
       default: true
+    },
+    /**
+     * Disable logout
+     */
+    logoutDisabled: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    /**
+     * Logout tooltip message
+     */
+    logoutDisabledMessage: {
+      type: String,
+      required: false,
+      default: ''
     }
   },
   data() {
