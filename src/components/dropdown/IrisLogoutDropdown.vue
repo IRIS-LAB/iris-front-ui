@@ -6,17 +6,24 @@
     :content="tooltipContent != '' ? tooltipContent : this.i18n.user"
   >
     <el-dropdown :style="arrow ? 'margin-right: 20px;' : ''" trigger="click">
-      <div class="slot-wrapper">
+      <div class="slot-wrapper" data-test="irisLogoutDropdownMenuButton">
         <!-- @slot For adding an 'iris-avatar' component -->
         <slot name="avatar"></slot>
         <i class="el-icon-caret-bottom arrow-icon" v-if="arrow"></i>
       </div>
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item id="username" v-if="!usernameEmpty" disabled>{{username}}</el-dropdown-item>
+        <el-dropdown-item id="username" v-if="!usernameEmpty" disabled>{{
+          username
+        }}</el-dropdown-item>
         <!-- @slot For adding 'el-dropdown-item' components to the dropdown menu -->
         <slot name="content"></slot>
-        <el-dropdown-item :divided="displayDivided">
-          <span id="logout" @click="logout($event)">{{i18n.logout}}</span>
+        <el-dropdown-item :divided="displayDivided" :disabled="logoutDisabled">
+          <span id="logout" @click="logout($event)" data-test="irisLogoutButton">{{ i18n.logout }}</span>
+        </el-dropdown-item>
+        <el-dropdown-item v-if="logoutDisabled && logoutDisabledMessage" style="text-align: center">
+          <el-tooltip :content="logoutDisabledMessage" placement="top">
+            <i class="el-icon-warning"></i>
+          </el-tooltip>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
@@ -86,11 +93,27 @@ export default {
       type: Boolean,
       required: false,
       default: true
+    },
+    /**
+     * Disable logout
+     */
+    logoutDisabled: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    /**
+     * Logout tooltip message
+     */
+    logoutDisabledMessage: {
+      type: String,
+      required: false,
+      default: ''
     }
   },
   data() {
     return {
-      i18n: {},
+      i18n: lang[this.language],
       displayDivided: this.usernameEmpty || this.$slots.content !== undefined,
       usernameEmpty: this.username === '',
       tooltipContentEmpty: this.tooltipContent === ''
@@ -105,9 +128,6 @@ export default {
     logout(event) {
       this.$emit('logoutEvent', event)
     }
-  },
-  mounted() {
-    this.i18n = lang[this.language]
   }
 }
 </script>
@@ -129,43 +149,3 @@ export default {
   font-size: var(--iris-logout-dropdown-font-size);
 }
 </style>
-
-<docs>
-### Examples
-
-#### JUST THE ARROW
-```vue
-<div style="display:flex">
-<!-- No avatar, no username, no tooltip, default dropdown menu -->
-  <iris-logout-dropdown></iris-logout-dropdown>
-</div>
-```
-
-#### AVATAR WITH TOOLTIP AND ADDITIONAL CONTENT
-```vue
-<div style="display:flex">
-<!-- English labels, avatar with initials, default tooltip, additional menus in the dropdown menu without username -->
-  <iris-logout-dropdown  language="en" :tooltip="true" v-on:logoutEvent="">
-    <template slot="avatar">
-  <iris-avatar username="Enrico Nacias"></iris-avatar>
-</template>
-    <template slot="content">
-  <el-dropdown-item v-on:click.native>More</el-dropdown-item>
-  <el-dropdown-item v-on:click.native>A Bit More</el-dropdown-item>
-</template>
-  </iris-logout-dropdown>
-</div>
-```
-
-#### AVATAR WITH IMAGE, USERNAME AND NO ARROW
-```vue
-<div style="display:flex">
-<!-- Avatar with image, tooltip with a different text, no arrow, default dropdown menu with username -->
-  <iris-logout-dropdown :arrow="false"  username="Homer Simpson" src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png" :tooltip="true" tooltipContent="Déconnexion utilisateur" v-on:logoutEvent="">
-    <template slot="avatar">
-  <iris-avatar src="https://www.clipartmax.com/png/middle/132-1327420_homer-simpson-head-png.png"></iris-avatar>
-</template>
-  </iris-logout-dropdown>
-</div>
-```
-</docs>

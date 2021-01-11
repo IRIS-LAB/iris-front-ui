@@ -1,30 +1,29 @@
 <template>
   <div class="parent-about">
     <span>{{ i18n.aboutTitle }} {{ _cApplicationName }}</span>
-    <br>
+    <br />
     <span>{{ packageJson.name }} v{{ packageJson.version }}</span>
-    <br>
+    <br />
     <span>{{ _cApplicationDescription }}</span>
-    <br>
-    <br>
+    <br />
+    <br />
     <span>
       {{ i18n.aboutProductDevelopLabel }} {{ _cApplicationCompany }} -
       {{ _cApplicationTeam }}
     </span>
-    <br>
+    <br />
     <span>
       &copy; Copyright {{ _cApplicationCompany }} -
       {{ _cApplicationCopyrightYear }}
     </span>
-    <br>
+    <br />
     <span>{{ i18n.aboutLibraryLabel }} :</span>
     <ul v-if="packageJson.dependencies">
-      <li
-        v-for="dependency of Object.keys(packageJson.dependencies)"
-        :key="dependency"
-      >{{ dependency }} {{ packageJson.dependencies[dependency] }}</li>
+      <li v-for="dependency of Object.keys(packageJson.dependencies)" :key="dependency">
+        {{ dependency }} {{ packageJson.dependencies[dependency] }}
+      </li>
     </ul>
-    <br>
+    <br />
     <span>{{ i18n.aboutEngineLabel }} :</span>
     <ul>
       <li>node {{ _cApplicationEnginesNode }}</li>
@@ -151,48 +150,3 @@ export default {
   text-align: left;
 }
 </style>
-
-<docs>
-  ### Examples 
-
-  #### Prerequisites
-
-  In your `main.js`, create a constant in a global mixins to serialize `package.json`.
-  You can add information about the application in the another constants.
-
-  ```html
-    Vue.mixin({
-      data: function() {
-        return { 
-          PACKAGE_JSON: require('../package.json'),
-          APPLICATION_JSON: require('../static/example-application-information.json')
-        }
-      }
-    })
-  ```
-
-  #### Object entries Example 
-
-  ```vue 
-  <iris-about
-    :package-json="PACKAGE_JSON"
-    :application-json="APPLICATION_JSON"
-    language="fr"
-  ></iris-about>
-  ```
-  #### String entries Example 
-
-  ```vue 
-  <iris-about
-    :package-json="PACKAGE_MODULE"
-    application-name="Another application"
-    application-description="The description of the application"
-    application-company="U GIE Iris"
-    application-copyright-year="2018"
-    application-engines-node="5.0"
-    application-engines-npm="7.0"
-    application-team="AIL"
-    language="en"
-  ></iris-about>
-  ```
-</docs>

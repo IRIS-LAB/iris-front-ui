@@ -75,29 +75,29 @@ describe('IrisLogoutDropdown.vue', () => {
 
   describe('HTML content', () => {
     it('should have the correct username', () => {
-      wrapper.setProps({ username: 'Homer Simpson' })
-      wrapper.setData({ usernameEmpty: false })
+      const wrapper = mount(IrisLogoutDropdown, {
+        propsData: {
+          username: 'Homer Simpson'
+        }
+      })
       expect(wrapper.vm.usernameEmpty).toBe(false)
       expect(wrapper.find('#username').text()).toEqual('Homer Simpson')
     })
 
     it('should not have username', () => {
-      expect(wrapper.vm.usernameEmpty).toBe(true)
       expect(wrapper.find('#username').exists()).toBe(false)
     })
 
-    it('should have the logout label in french', () => {
+    it('should have the logout label in french by default', () => {
       expect(wrapper.find('#logout').text()).toEqual(lang['fr'].logout)
     })
 
     it('should have the logout label in english', () => {
+      jest.clearAllMocks()
       const language = 'en'
       const wrapperWithProps = mount(IrisLogoutDropdown, {
-        propsData: {
-          language
-        }
+        propsData: { language }
       })
-      wrapperWithProps.setProps({ language })
       expect(wrapperWithProps.find('#logout').text()).toEqual(lang[language].logout)
     })
 

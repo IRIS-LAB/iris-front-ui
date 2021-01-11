@@ -6,34 +6,34 @@
       :close-on-content-click="false"
       :nudge-right="nudgeRight"
       :nudge-top="nudgeTop"
-      lazy
       transition="scale-transition"
       offset-y
-      full-width
       max-width="290px"
       min-width="290px"
       :close-on-click="false"
     >
-      <v-text-field
-        ref="dptextfield"
-        slot="activator"
-        :label="label"
-        :value="dateAsTextFieldFormat"
-        :placeholder="placeholderDateAsTextFieldFormat"
-        :disabled="disabled"
-        :hint="textFieldDateFormat"
-        persistent-hint
-        prepend-inner-icon="event"
-        :rules="rules"
-        @blur="setDateFromTextFieldFormat"
-        :clearable="clearable"
-        @click:clear="clearDate"
-        @keypress="checkChar"
-        @input="setDateFromTextFieldFormatInput"
-        :validate-on-blur="validateOnBlur"
-        :error-messages="errorMessages"
-        @keyup.enter="updatePickerNudge()"
-      ></v-text-field>
+      <template v-slot:activator="{ on }">
+        <v-text-field
+          ref="dptextfield"
+          v-on="on"
+          :label="label"
+          :value="dateAsTextFieldFormat"
+          :placeholder="placeholderDateAsTextFieldFormat"
+          :disabled="disabled"
+          :hint="textFieldDateFormat"
+          persistent-hint
+          prepend-inner-icon="event"
+          :rules="rules"
+          @blur="setDateFromTextFieldFormat"
+          :clearable="clearable"
+          @click:clear="clearDate"
+          @keypress="checkChar"
+          @input="setDateFromTextFieldFormatInput"
+          :validate-on-blur="validateOnBlur"
+          :error-messages="errorMessages"
+          @keyup.enter="updatePickerNudge()"
+        ></v-text-field>
+      </template>
       <v-date-picker
         :value="dateAsPickerDateFormat"
         no-title
@@ -87,20 +87,16 @@ export default {
      */
     pickerDateInit: { type: String, required: false },
     /**
-     * Locale for picker display format. Supported locales are:
-     * <ul>
-     * <li><b>en</b>: English</li>
-     * <li><b>fr</b>: French</li>
-     * </ul>
+     * Locale for picker display format. Supported locales are:<br>
+     * <b>en</b>: English</li><br>
+     * <b>fr</b>: French
      *
      */
     locale: { type: String, required: false, default: 'fr' },
     /**
      * Boolean alowing activation/deactivation of the component (grayed out and not selectable).<br>
-     * <ul>
-     * <li><b>true</b>: component is deactivated</li>
-     * <li><b>false</b>: component is activated and selectable/editable</li>
-     * </ul>
+     * <b>true</b>: component is deactivated<br>
+     * <b>false</b>: component is activated and selectable/editable
      */
     disabled: { type: Boolean, required: false, default: false },
     /**
@@ -113,19 +109,15 @@ export default {
     },
     /**
      * Whether the user will be able to clear the value of the field.<br>
-     * <ul>
-     * <li><b>true</b>: component is clearable</li>
-     * <li><b>false</b>: component is NOT clearable</li>
-     * </ul>
+     * <b>true</b>: component is clearable<br>
+     * <b>false</b>: component is NOT clearable<br>
      *
      */
     clearable: { type: Boolean, default: true, required: false },
     /**
-     * Allows to postpone rules validations when text field looses focus.
-     * <ul>
-     * <li><b>true</b>: rules are checked only when text field looses focus</li>
-     * <li><b>false</b>: rules are checked in realtime</li>
-     * </ul>
+     * Allows to postpone rules validations when text field looses focus.<br>
+     * <b>true</b>: rules are checked only when text field looses focus<br>
+     * <b>false</b>: rules are checked in realtime<br>
      */
     validateOnBlur: { type: Boolean, default: false, required: false },
     /**
@@ -358,32 +350,3 @@ export default {
   }
 }
 </script>
-
-<docs>
-### Examples
-
-#### SIMPLE DATE PICKER
-```vue
-<iris-date-picker></iris-date-picker>
-```
-
-#### DATE PICKER PLACEHOLDER
-```vue
-<iris-date-picker placeholder-date="2019-04-12"></iris-date-picker>
-```
-
-#### DATE PICKER FED WITH INTITIAL VALUE AND FORMAT
-```vue
-<iris-date-picker label="Date Picker Label" date-data="2019-05-12" :disabled="false" text-field-date-format="DD.MM.YY"></iris-date-picker>
-```
-
-#### DATE PICKER RULES
-```vue
-<iris-date-picker label="Date Picker Label" date-data="2019-05-12" :disabled="false" text-field-date-format="DD.MM.YY" :rules="[value => !!value || 'Mandatory']"></iris-date-picker>
-```
-
-#### DATE PICKER RULES VALIDATION WHEN FOCUCED LOST
-```vue
-<iris-date-picker label="Date Picker Label" date-data="2019-05-12" :disabled="false" text-field-date-format="DD.MM.YY" :rules="[value => !!value || 'Mandatory']" validate-on-blur></iris-date-picker>
-```
-</docs>
